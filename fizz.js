@@ -346,17 +346,16 @@ Note: This question is the same as 1991: https://leetcode.com/problems/find-the-
 //Solulu
 
 function pivotIndex(nums){
-  let rSum=0;
+  let totalSum=nums.reduce((acc,num)=>acc+num,0)
   let lSum=0;
 for(let i=0;i<nums.length;i++){
-  rSum+=nums[i];
-  for(let j=nums.length-1;j>=i;j--){
-    lSum+=nums[j];
-  }
-  if(rSum==lSum){
-    return i;
   
-  }
+ 
+  if(lSum===totalSum-lSum-nums[i]){
+    return i;
+  } 
+  lSum+=nums[i];
+  
 }
 
 }
