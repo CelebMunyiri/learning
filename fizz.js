@@ -235,7 +235,7 @@ lcmVals.push(i);
   let gcdVals=[]
   for(let i=lcmVals[0];i<=lcmVals[lcmVals.length-1];i++){
     if(b[0]%i==0 && b[1]%i==0){
-      gcdVals.push(i);
+      gcdVals.push(i); 
     }
   }
   //console.log(gcdVals);
@@ -360,8 +360,48 @@ for(let i=0;i<nums.length;i++){
 
 }
 
-console.log(pivotIndex([1,7,3,6,5,6]));
+//console.log(pivotIndex([1,7,3,6,5,6]));
 
+//share chocolate bar
+
+function chocolateFeast(s, d, m) {
+
+  let count=0;
+  for(let i=0;i<s.length;i++){
+    for(let j=i+1;j<=i+m;j++){
+      if(s[i]+s[j]==d){
+        count += 1;
+      }
+    }
+  }
+  return count;
+    
+}
+
+//console.log(chocolateFeast([2,2,1,3,2],4,2));
+
+
+//return an array such that each element at index i of new array is product of all the numbers in the original  array except the one at i
+
+function productArray(arr){
+  let newAr=[];
+  
+  for(let i=0;i<arr.length;i++){
+   let rest= [...arr.slice(0,i),...arr.slice(i+1)]
+
+   const product = rest.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+  
+   
+console.log(`${rest}===${i}`);
+       
+   newAr.push(product);
+  }
+ 
+  return newAr;
+
+}
+
+console.log(productArray([1,2,3,4,5]));
 
 
 
