@@ -392,7 +392,7 @@ function productArray(arr){
    const product = rest.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
   
    
-console.log(`${rest}===${i}`);
+// console.log(`${rest}===${i}`);
        
    newAr.push(product);
   }
@@ -401,7 +401,110 @@ console.log(`${rest}===${i}`);
 
 }
 
-console.log(productArray([1,2,3,4,5]));
+//console.log(productArray([3,2,1]));
+
+///FUNCTION TO REVERSE VOWELS OF A STRING
+var reverseVowels = function(s) {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+  let arr = s.split('');
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+      while (left < right && !vowels.has(arr[left])) {
+          left++;
+      }
+      while (left < right && !vowels.has(arr[right])) {
+          right--;
+      }
+      if (left < right) {
+          [arr[left], arr[right]] = [arr[right], arr[left]];
+          left++;
+          right--;
+      }
+  }
+
+  return arr.join('');
+};
+
+//Finding Difference of Arrays
+
+function findDifference(nums1,nums2){
+  
+  let l1=[];
+  let l2=[];
+
+  for(let i=0;i<nums1.length;i++){
+    if(nums2.includes(nums1[i])==false){
+l1.push(nums1[i]);
+    }
+  }
+
+  for(let i=0;i<nums2.length;i++){
+    if(nums1.includes(nums2[i])==false){
+l2.push(nums2[i]);
+    }
+  }
+
+  return [l1,l2];
+
+}
+
+//console.log(findDifference([1,2,3],[2,4,6]))
+
+// migratoryBirds hackerrank quiz
+
+function migratoryBirds(arr) {
+  // Write your code here
+  let count=0;
+  let maxCount=0;
+  let maxBird=0;
+  for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+      if(arr[i]==arr[j]){
+        count+=1;
+        console.log(count);
+      }
+    }
+    if(count>maxCount){
+      maxCount=count;
+      maxBird=arr[i];
+    }
+    count=0;
+  }
+  return maxBird;
+}
+
+console.log(migratoryBirds([1,2,3,4,5,4,3,2,1,3,4]));
+
+///eficint answer for migratoryBirds 
+function migratoryBirds(arr) {
+  // Create an array to count occurrences of each bird type.
+  const frequency = new Array(6).fill(0); // Bird IDs are between 1 and 5, so we need an array of size 6.
+
+  // Count the frequency of each bird type.
+  for (let i = 0; i < arr.length; i++) {
+      frequency[arr[i]]++;
+  }
+
+  // Find the bird type with the highest frequency.
+  let maxCount = 0;
+  let maxBird = 0;
+  for (let i = 1; i <= 5; i++) { // Only iterate through possible bird IDs (1 to 5)
+      if (frequency[i] > maxCount) {
+          maxCount = frequency[i];
+          maxBird = i;
+      } else if (frequency[i] === maxCount && i < maxBird) {
+          maxBird = i;
+      }
+  }
+
+  return maxBird;
+}
+
+
+
+
 
 
 
