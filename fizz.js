@@ -583,6 +583,34 @@ function dayOfProgrammer(year) {
 }
 
 //GCD OF STRINGS
+function gcdStrings(str1,str2){
+  while(1<=str1.length,str2.length<=1000){
+  str1=str1.toUpperCase();
+  str2=str2.toUpperCase();
+  let l1='';
+  let l2='';
+
+  for(let i=0;i<str1.length;i++){
+    if(l1.includes(str1[i])==false){
+      l1+=str1[i];
+    }
+  }
+
+  for(let i=0;i<str2.length;i++){
+    if(l2.includes(str2[i])==false){
+      l2+=str2[i];
+    }
+  }
+
+  if(l1==l2){
+    return l1;
+  }
+
+  return ""
+  }
+}
+
+console.log(gcdStrings("ABCABC","ABC"));
 
 
 
