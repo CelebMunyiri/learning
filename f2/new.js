@@ -8,8 +8,8 @@ function joinRoom(ticketId) {
 // Function to send chat message
 function sendMessage() {
   const text = document.getElementById('messageInput').value.trim();
-  const sender = { name: "Santan", email: "davy@gmail.com" };
-  const ticketId = 'INC15411384';
+  const sender = { name: "Santan", email: "erick@nathandigital.com",_id:"65f97b3873ef8b99b3d6ba49" };
+  const ticketId = 'INC22412110';
 
   if (text !== '') {
     socket.emit('chatMessage', { ticketId, sender, text });
@@ -19,7 +19,7 @@ function sendMessage() {
 
 // Function to send typing status
 function sendTypingStatus(isTyping) {
-  const ticketId = 'INC15411384';
+  const ticketId = 'INC22412110';
   socket.emit('typing', { ticketId, isTyping });
 }
 
@@ -47,9 +47,10 @@ socket.on('chatMessage', data => {
 // Handle incoming typing notifications (moved outside sendMessage function)
 socket.on('typing', data => {
   const { sender, isTyping } = data;
+  const theName=sender.get('name');
   const typingStatusElement = document.getElementById('typingStatus');
   if (isTyping) {
-    typingStatusElement.innerText = `${sender.name} is typing...`;
+    typingStatusElement.innerText = `${theName} is typing...`;
   } else {
     typingStatusElement.innerText = '';
   }
@@ -62,7 +63,7 @@ socket.on('error', error => {
 
 // Join the chat room when the page loads
 window.onload = () => {
-  const ticketId = 'INC15411384';
+  const ticketId = 'INC22412110';
   joinRoom(ticketId);
 };
 
