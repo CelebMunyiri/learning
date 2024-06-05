@@ -8,7 +8,7 @@ function joinRoom(ticketId) {
 // Function to send chat message
 function sendMessage() {
   const text = document.getElementById('messageInput').value.trim();
-  const sender = { name: "Santan", email: "erick@nathandigital.com",_id:"65f97b3873ef8b99b3d6ba49" };
+  const sender = { name: "Santan", email: "clavin@nathandigital.com",_id:"65f97b3873ef8b99b3d6ba49" };
   const ticketId = 'INC22412110';
 
   if (text !== '') {
