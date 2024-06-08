@@ -37,8 +37,84 @@ console.log(thisStr.endsWith("Hello")); //returns a boolean if the string ends w
 console.log(thisStr.split(" ")); //split the string where there is specified string and return an array of strings after splitting
 console.log(thisStr.slice(5,6)); //Extracts a section of the string
 
+///LEETCODE QUIZ(648)[MEDIUM]
+//PROBLEM
+/*
+In English, we have a concept called root, which can be followed by some other word to form another longer word - let's call this word derivative. For example, when the root "help" is followed by the word "ful", we can form a derivative "helpful".
 
+Given a dictionary consisting of many roots and a sentence consisting of words separated by spaces, replace all the derivatives in the sentence with the root forming it. If a derivative can be replaced by more than one root, replace it with the root that has the shortest length.
 
+Return the sentence after the replacement.
+
+ 
+
+Example 1:
+
+Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
+Output: "the cat was rat by the bat"
+Example 2:
+
+Input: dictionary = ["a","b","c"], sentence = "aadsfasf absbs bbab cadsfafs"
+Output: "a a b c"
+ 
+
+Constraints:
+
+1 <= dictionary.length <= 1000
+1 <= dictionary[i].length <= 100
+dictionary[i] consists of only lower-case letters.
+1 <= sentence.length <= 106
+sentence consists of only lower-case letters and spaces.
+The number of words in sentence is in the range [1, 1000]
+The length of each word in sentence is in the range [1, 1000]
+Every two consecutive words in sentence will be separated by exactly one space.
+sentence does not have leading or trailing spaces.
+*/
+
+//SOLUTION
+
+function replaceWholeWord(str, wordToReplace, replacementWord) {
+    // Create a regular expression with word boundaries
+    const regex = new RegExp(`\\b${wordToReplace}\\b`, 'g');
+    return str.replace(regex, replacementWord);
+}
+
+function approachTwo(s,d){
+    let strArray=s.split(" ");
+    for(let i=0;i<strArray.length;i++){
+        for(let j=0;j<d.length;j++){
+            if(strArray[i].includes(d[j])){
+                strArray[i]=strArray[i].replace(d[j],d[j]);
+            }
+        }
+    }
+    return strArray.join(" ");
+}
+function createReplacer(wordToReplace, replacementWord) {
+    return function (str) {
+        const regex = new RegExp(`\\b${wordToReplace}\\b`, 'g');
+        return str.replace(regex, replacementWord);
+    };
+}
+function trimDerivativeOfRootStrings(dictionary,sentence){
+    let strArray = sentence.split(" ");
+
+    for(let i = 0; i < strArray.length; i++){
+        for(let j=0;j<dictionary.length; j++){
+            if(strArray[i].includes(dictionary[j])){
+               strArray[i]= createReplacer(strArray[i],dictionary[j])
+            }
+        }
+        
+    }
+    return strArray.join(" ");
+}
+
+let dictionary = ["cat","bat","rat"];
+let sentence = "the cattle was rattled by the battery";
+
+//console.log(trimDerivativeOfRootStrings(dictionary,sentence));
+console.log(approachTwo(dictionary,sentence))
 
 
 
