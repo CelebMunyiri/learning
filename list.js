@@ -73,7 +73,7 @@ Move to the next nodes in both lists.
 Handle the remaining carry after the iteration.
 Return the head of the resultant linked list. */
 
-//Solulu
+//Solution
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -111,3 +111,7 @@ function addTwoNumbers(l1, l2) {
     // The result linked list is dummyHead.next
     return dummyHead.next;
 }
+
+
+///learning
+
