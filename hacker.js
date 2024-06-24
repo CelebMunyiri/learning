@@ -308,6 +308,13 @@ function getMoneySpent(keyboards, drives, b){
 }
 
 
+let arr=[]
+let index=7
+
+if(arr.length == index-1 || arr.length == 0){
+    console.log("Munyiri")
+}
+
 
 
 
