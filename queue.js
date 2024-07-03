@@ -180,27 +180,27 @@ class CircularQueue{
     }
 }
 
-const queue = new CircularQueue(5);
+const queue1 = new CircularQueue(5);
 console.log(
     "Is the queue empty? ", 
-    queue.isEmpty());
+    queue1.isEmpty());
 console.log(
     "Is the queue full? ", 
-    queue.isFull());
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(40);
-queue.enqueue(50);
+    queue1.isFull());
+queue1.enqueue(10);
+queue1.enqueue(20);
+queue1.enqueue(30);
+queue1.enqueue(40);
+queue1.enqueue(50);
 console.log(
     "Is the queue empty? ", 
-    queue.isEmpty());
+    queue1.isEmpty());
 console.log(
     "Is the queue full? ", 
-    queue.isFull());
-queue.displayQueue();
-queue.dequeue();
-queue.dequeue();
-queue.displayQueue();
-queue.getFront();
-queue.getRear();
+    queue1.isFull());
+queue1.displayQueue();
+queue1.dequeue();
+queue1.dequeue();
+queue1.displayQueue();
+queue1.getFront();
+queue1.getRear();
