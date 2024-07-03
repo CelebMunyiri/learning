@@ -114,7 +114,7 @@ class CircularQueue{
         this.rear = -1;
     }
 
-    isfull(){
+    isFull(){
         return(this.front === 0 && this.rear === this.size-1) || (this.rear ===(this.front-1+this.size)%this.size);
     }
     isEmpty(){
@@ -122,7 +122,7 @@ class CircularQueue{
     }
 
     enqueue(item){
-        if(this.isfull()){
+        if(this.isFull()){
             console.log("The Queue is Full")
             return;
         }
