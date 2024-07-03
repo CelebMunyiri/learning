@@ -75,5 +75,132 @@ class SimpleQueue {
 
 
 //CIRCULAR QUEUE 
+/*
+Operations on Circular Queue
+Enqueue: Add an element to the rear of the queue.
+Dequeue: Remove an element from the front of the queue.
+isFull: Check if the queue is full.
+isEmpty: Check if the queue is empty.
+Front: It will return the first element of the circular queue.
+Rear: It will return the last element of the circular queue.
+How to Implement a Circular Queue using Array in JavaScript?
+To implement a circular queue using an array in JavaScript, follow these steps:
 
+Initialize an array named queue of size n, where n is the maximum number of elements the queue can hold.
+Initialize two variables, front and rear, both set to -1 initially.
+Enqueue Operation:
+To enqueue an element x into the queue:
 
+Increment rear by 1.
+If rear equals n, set rear to 0 (wrap around).
+If front is -1, set front to 0.
+Set queue[rear] to x.
+Dequeue Operation:
+To dequeue an element from the queue:
+
+Check if the queue is empty by verifying if front is -1. If it is, return an error message indicating that the queue is empty.
+Set x to queue[front].
+If front equals rear, set both front and rear to -1.
+Otherwise, increment front by 1, and if front equals n, set front to 0 (wrap around).
+Return x.
+Example: The below code implements the circular queue and performs operations on it.
+*/
+
+class CircularQueue{
+    constructor(size){
+        this.size = size;
+        this.queue = new Array(size);
+        this.frontIndex = -1;
+        this.rear = -1;
+    }
+
+    isfull(){
+        return(this.front === 0 && this.rear === this.size-1) || (this.rear ===(this.front-1+this.size)%this.size);
+    }
+    isEmpty(){
+        return this.front === -1;
+    }
+
+    enqueue(item){
+        if(this.isfull()){
+            console.log("The Queue is Full")
+            return;
+        }
+        if(this.isEmpty()){
+            this.front=0;
+            this.rear=0;
+        } else {
+            this.rear=(this.rear+1)%
+            this.size
+        }
+        this.queue[this.rear] = item;
+        console.log(`${item} added to the queue`);
+    }
+    dequeue(){
+        let item;
+        if(this.isEmpty()){
+            console.log("The Queue is Empty")
+            return;
+        } 
+        if(this.front ===this.rear){
+            item = this.queue[this.front];
+            this.front = -1;
+            this.rear = -1;
+        } else {
+            item = thisqueue[this.front];
+            this.front = (this.front+1)%this.size;
+        }
+        console.log(`${item} removed from the queue`);
+        return item;
+    }
+    displayQueue(){
+        if(this.isEmpty()){
+            console.log("The Queue is Empty")
+            return;
+        }
+        let i = this.front;
+        do {
+            console.log(this.queue[i]);
+            i=(i+1)% this.size;
+        } while(i !==(this.rear+1) % this.size)
+    }
+    getFront(){
+        if(this.isEmpty()){
+            console.log("The Queue is Empty")
+            return;
+        }
+        console.log(`Front element: ${this.queue[this.front]}`);
+    }
+    getRear(){
+        if(this.isEmpty()){
+            console.log("The Queue is Empty");
+            return;
+        }
+        console.log(`Rear element: ${this.queue[this.rear]}`);
+    }
+}
+
+const queue = new CircularQueue(5);
+console.log(
+    "Is the queue empty? ", 
+    queue.isEmpty());
+console.log(
+    "Is the queue full? ", 
+    queue.isFull());
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(40);
+queue.enqueue(50);
+console.log(
+    "Is the queue empty? ", 
+    queue.isEmpty());
+console.log(
+    "Is the queue full? ", 
+    queue.isFull());
+queue.displayQueue();
+queue.dequeue();
+queue.dequeue();
+queue.displayQueue();
+queue.getFront();
+queue.getRear();
