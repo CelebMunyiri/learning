@@ -204,3 +204,6 @@ queue1.dequeue();
 queue1.displayQueue();
 queue1.getFront();
 queue1.getRear();
+
+
+//PRIORITY QUEUE
