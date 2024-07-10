@@ -488,6 +488,102 @@ function formingMagicSquare(s) {
 
 }
 
+//ANOTHER HACKER RANK PROBLEM
+/*
+Given an array of integers, find the longest subarray where the absolute difference between any two elements is less than or equal to .
+
+Example
+
+
+There are two subarrays meeting the criterion:  and . The maximum length subarray has  elements.
+
+Function Description
+
+Complete the pickingNumbers function in the editor below.
+
+pickingNumbers has the following parameter(s):
+
+int a[n]: an array of integers
+Returns
+
+int: the length of the longest subarray that meets the criterion
+Input Format
+
+The first line contains a single integer , the size of the array .
+The second line contains  space-separated integers, each an .
+
+Constraints
+
+The answer will be .
+Sample Input 0
+
+6
+4 6 5 3 3 1
+Sample Output 0
+
+3
+Explanation 0
+
+We choose the following multiset of integers from the array: . Each pair in the multiset has an absolute difference  (i.e.,  and ), so we print the number of chosen integers, , as our answer.
+
+Sample Input 1
+
+6
+1 2 2 3 1 2
+Sample Output 1
+
+5
+Explanation 1
+
+We choose the following multiset of integers from the array: . Each pair in the multiset has an absolute difference  (i.e., , , and ), so we print the number of chosen integers, , as our answer.
+
+Language
+JavaScript (Node.js)
+More
+12345678910111213141516171819
+Line: 50 Col: 1
+
+Test against custom input
+Blog
+*/
+//SOLUTION
+//SOLUTION EXPLANATION
+/*
+Frequency Array:
+
+We create an array frequency of size 101, initialized with zeros to cover all numbers from 0 to 100.
+We iterate over the input array a and increment the corresponding index in the frequency array for each number.
+Calculate Maximum Length:
+
+We iterate through the frequency array from index 1 to 100.
+For each index i, we calculate the sum of frequency[i] and frequency[i-1], which represents the length of the subarray formed by elements i and i-1.
+We update maxLength with the maximum value found during the iteration.
+This implementation ensures that we efficiently find the longest subarray that meets the given criterion by leveraging the frequency of elements and considering pairs of consecutive integers.
+*/
+function pickingNumbers(a) {
+    // Step 1: Count the frequency of each number in the array
+    const frequency = new Array(101).fill(0); // Given that 1 <= a[i] <= 100, we need 101 slots
+    a.forEach(number => {
+        frequency[number]++;
+    });
+
+    // Step 2: Find the maximum length of subarray with elements having a difference of at most 1
+    let maxLength = 0;
+    for (let i = 1; i <= 100; i++) {  // Check pairs (i, i+1)
+        const currentLength = frequency[i] + frequency[i - 1];
+        if (currentLength > maxLength) {
+            maxLength = currentLength;
+        }
+    }
+
+    return maxLength;
+}
+
+// Example usage
+const a1 = [4, 6, 5, 3, 3, 1];
+const a2 = [1, 2, 2, 3, 1, 2];
+console.log(pickingNumbers(a1));  // Output: 3
+console.log(pickingNumbers(a2));  // Output: 5
 
 
 
