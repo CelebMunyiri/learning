@@ -131,17 +131,78 @@ class Linkedlist{
     constructor(head=null){
 this.head = head;
     }
+
+    //LINKEDLIST METHODS
+size(){
+    let count=0;
+    let node=this.head;
+    while(node){
+        count++;
+        node=node.next;
+
+    }
+    return count;
+}
+
+clear(){
+    this.head=null;
+}
+
+getFirst(){
+    return this.head;
+}
+
+getLast(){
+    let node=this.head;
+    if(node){
+        while(node.next){
+            node=node.next;
+        }
+    }
+    return node;
+}
+
 }
 
 //example
 let node1 = new Listnode(2);
 let node2 = new Listnode(5);
 let node3= new Listnode(6);
-node1.next=node2;
+let nodeM = new Listnode(7);
+
 
 node2.next=node3;
+nodeM.next=node2;
+node1.next=nodeM;
 
 let listt = new Linkedlist(node1)
 
-console.log(node2.next.data)
-console.log(listt)
+// console.log(node1.next.data)
+// console.log(node2.next.data)
+// console.log(listt) 
+
+// console.log(listt.size())
+console.log(listt.getFirst())
+console.log(listt.head.next.data)
+console.log(listt.getLast())
+
+//listt.clear();
+//console.log(listt.size())
+
+
+// class Sum{
+//     // constructor(a,b){
+//     //     this.a=a;
+//     //     this.b=b;
+//     // }
+
+//     addThem(a=3,b=5){
+//         this.a=a;
+//         this.b=b;
+//         return this.a+this.b;
+//     }
+
+// }
+// const newSum= new Sum();
+
+// console.log(newSum.addThem(1,2))
