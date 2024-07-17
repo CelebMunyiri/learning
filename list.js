@@ -1,4 +1,4 @@
-class Node{
+/* class Node{
     constructor(data){
         this.data=data;
         this.next=null;
@@ -8,6 +8,7 @@ class Node{
 class LinkedList{
     constructor(data){
         this.head=null;
+       
     }
 
     append(data){
@@ -71,7 +72,7 @@ Add the corresponding digits along with any carry from the previous addition.
 If the sum is 10 or more, keep the carry for the next iteration and store the remainder (sum % 10) in the new node.
 Move to the next nodes in both lists.
 Handle the remaining carry after the iteration.
-Return the head of the resultant linked list. */
+Return the head of the resultant linked list. 
 
 //Solution
 class ListNode {
@@ -110,8 +111,37 @@ function addTwoNumbers(l1, l2) {
 
     // The result linked list is dummyHead.next
     return dummyHead.next;
-}
+} 
+*/
 
 
 ///learning
+///SIMPLE LINKED LISTS IN JAVASCRIPT
 
+//List node
+class Listnode{
+    constructor(data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+//Linked List
+class Linkedlist{
+    constructor(head=null){
+this.head = head;
+    }
+}
+
+//example
+let node1 = new Listnode(2);
+let node2 = new Listnode(5);
+let node3= new Listnode(6);
+node1.next=node2;
+
+node2.next=node3;
+
+let listt = new Linkedlist(node1)
+
+console.log(node2.next.data)
+console.log(listt)
