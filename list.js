@@ -206,3 +206,8 @@ console.log(listt.getLast())
 // const newSum= new Sum();
 
 // console.log(newSum.addThem(1,2))
+
+
+//
+
+

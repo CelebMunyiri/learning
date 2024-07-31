@@ -1,5 +1,5 @@
 "use strict";
-let head;
+/* let head;
 class Node{
     constructor(data){
         this.data=data;
@@ -44,4 +44,37 @@ head = new Node(85);
         printList(head);
         reverse(head);
 
-        
+   */     
+
+//
+
+
+// function returnHighestAltitude(gain){
+//     let altitudes = gain.map(function(altitude){
+//         return altitude + altitudes.reduce(function(previous, current){
+//             return Math.max(previous, current);
+//         }, 0);
+//     });
+//     return altitudes;
+// }
+
+function returnHighestAltitude(gain){
+    let altitude=[0]
+    for(let i=0;i<gain.length;i++){
+        altitude[i+1]=altitude[i]+gain[i]
+        console.log(altitude)
+    }
+
+    let largest = altitude[0];
+    
+    for (let i = 1; i < altitude.length; i++) {
+        if (altitude[i] > largest) {
+            largest = altitude[i];
+        }
+    }
+    
+    return largest;
+}
+
+let list=[-5,1,5,0,-7]
+console.log(returnHighestAltitude(list))
