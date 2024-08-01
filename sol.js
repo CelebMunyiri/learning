@@ -58,6 +58,8 @@ head = new Node(85);
 //     return altitudes;
 // }
 
+//PROBLEM
+
 function returnHighestAltitude(gain){
     let altitude=[0]
     for(let i=0;i<gain.length;i++){
@@ -77,4 +79,39 @@ function returnHighestAltitude(gain){
 }
 
 let list=[-5,1,5,0,-7]
-console.log(returnHighestAltitude(list))
+//console.log(returnHighestAltitude(list))
+
+
+// SORTING ARRAY BY INCREASING FREQUENCY
+
+function sortArrayByFrequency(arr){
+    let frequencyMap = new Map();
+
+    // Count the frequency of each element
+    for(let i = 0; i < arr.length; i++){
+        if(frequencyMap.has(arr[i])){
+            frequencyMap.set(arr[i], frequencyMap.get(arr[i]) + 1);
+            console.log(frequencyMap)
+        } else {
+            frequencyMap.set(arr[i], 1);
+        }
+    }
+
+    // Sort the elements based on their frequency
+    let sortedArray = [...frequencyMap.entries()].sort((a, b) => b[1] - a[1]);
+
+    // Extract the elements from the sorted array
+    let result = [];
+    for(let [element, frequency] of sortedArray){
+        for(let i = 0; i < frequency; i++){
+            result.push(element);
+        }
+    }
+
+    return result.reverse();
+}
+
+let input = [1,1,2,2,2,3]
+
+console.log(sortArrayByFrequency(input))
+
