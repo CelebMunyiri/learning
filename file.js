@@ -26,3 +26,19 @@ function integerReverser(number){
 }
 
 console.log(integerReverser(123456789));
+
+//LinkedList revision 
+
+class Node{
+    constructor(data,next=null){
+        this.data=data;
+        this.next=next;
+    }
+}
+
+class LinkedList{
+    constructor(){
+
+    }
+}
+
