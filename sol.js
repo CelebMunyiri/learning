@@ -141,4 +141,74 @@ function canVisitAllRooms(rooms){
 }
 
 let rooms=[[1],[2],[3],[0]]
-console.log(canVisitAllRooms(rooms));
+//console.log(canVisitAllRooms(rooms));
+
+
+function isSubsequence(s,t){
+    // let newS=[]
+    // let string=t.split('');
+    // let subString=s.split('');
+
+    // for(let i=0;i<string.length;i++){
+    //     for(let j=0;j<subString.length;j++){
+    //         if(string[i]==subString[j]){
+    //             newS.push(string[i])
+                
+    //         }
+    //         if(string[i] !==subString[j]){
+    //             string.splice(i-1,i)
+    //         }
+    //     }
+    // }
+
+    // return newS.toString()==s
+
+    let i=0;
+    let j=0;
+
+    let string=t.split('');
+    let subString=s.split('');
+
+    for(let m=0;m<string.length;m++){
+        for(let n=0;n<subString.length;n++){
+            if(string[m]==subString[n]){
+                i+=1;
+            }else{
+                j+=1
+            }
+        }
+    }
+
+    return i==subString.length;
+
+}
+
+//sol b
+
+function isSubsequence(s, t) {
+    let i = 0; // Pointer for s
+    let j = 0; // Pointer for t
+  
+    while (i < s.length && j < t.length) {
+      if (s[i] === t[j]) {
+        i++; // Move i only when characters match
+      }
+      j++; // Always move j to check the next character in t
+    }
+  
+    return i === s.length; // If i reaches the end of s, s is a subsequence of t
+  }
+  
+  // Example 1
+  let s1 = "abc";
+  let t1 = "ahbgdc";
+  console.log(isSubsequence(s1, t1)); // Output: true
+  
+  // Example 2
+  let s2 = "axc";
+  let t2 = "ahbgdc";
+  console.log(isSubsequence(s2, t2)); // Output: false
+
+
+
+console.log(isSubsequence('abc','ahbgdc'))
