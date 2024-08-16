@@ -212,3 +212,42 @@ function isSubsequence(s, t) {
 
 
 console.log(isSubsequence('abc','ahbgdc'))
+
+
+
+function productExceptSelf(nums) {
+    const n = nums.length;
+    const answer = new Array(n).fill(1);
+    
+    // Calculate prefix products
+    let prefix = 1;
+    for (let i = 0; i < n; i++) {
+        answer[i] = prefix;
+        prefix *= nums[i];
+    }
+    
+    // Calculate suffix products and multiply with the prefix products
+    let suffix = 1;
+    for (let i = n - 1; i >= 0; i--) {
+        answer[i] *= suffix;
+        suffix *= nums[i];
+    }
+    
+    return answer;
+}
+
+console.log(productExceptSelf([1,2,3,4]));
+
+let array=[1,2,3,4,5,6,7,8,9,10]
+
+console.log(array)
+console.log(array.fill(20,9,10))
+
+
+//SPLICE METHOD
+//inserting elements using splice
+let Arr=[1,2,5,6]
+Arr.splice(2,0,3,4)
+console.log(Arr)//output is [1,2,3,4,5,6]
+//removing elements using splice
+Arr.splice(4,2)//states from index 4 remove 2 elements
